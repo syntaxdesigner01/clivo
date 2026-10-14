@@ -1,0 +1,185 @@
+/* ---- Home ---- */
+body{margin:0;background:#f1f1f4}
+a{color:#1d1e24}
+a:hover{color:#0a7d42}
+html{transition:filter .35s ease}
+html[data-theme="dark"]{filter:invert(1) hue-rotate(180deg);background:#ffffff}
+html[data-theme="dark"] img,html[data-theme="dark"] .logo-mark{filter:invert(1) hue-rotate(180deg)}
+html{scroll-behavior:smooth}
+.to-top{background:#1d1e24;color:#ffffff;transition:transform .25s ease,background .25s ease,color .25s ease}
+.to-top:hover{transform:translateY(-3px);background:#10b961;color:#0b2a19}
+.to-top:focus-visible{outline:2px solid #10b961;outline-offset:3px}
+@keyframes clivoTopIn{from{opacity:0;visibility:hidden;translate:0 20px}to{opacity:1;visibility:visible;translate:0 0}}
+@supports (animation-timeline: scroll()){.to-top{animation:clivoTopIn linear both;animation-timeline:scroll(root);animation-range:0px 500px}}
+@media (prefers-reduced-motion: reduce){html{scroll-behavior:auto}.to-top{animation:none !important}}
+@keyframes clivoUp{from{opacity:0;translate:0 28px}to{opacity:1;translate:0 0}}
+@keyframes clivoDrop{from{opacity:0;translate:0 -18px}to{opacity:1;translate:0 0}}
+@keyframes clivoReveal{from{opacity:0;translate:0 56px;scale:.97;filter:blur(4px)}to{opacity:1;translate:0 0;scale:1;filter:none}}
+@keyframes clivoTilt{from{opacity:0;translate:0 70px;transform:perspective(1400px) rotateX(16deg)}to{opacity:1;translate:0 0;transform:perspective(1400px) rotateX(0)}}
+@keyframes clivoPhone{from{translate:0 180px}to{translate:0 0}}
+.page-home header{animation:clivoDrop .7s cubic-bezier(.2,.7,.2,1) both}
+.page-home > div:first-child section > *{animation:clivoUp .9s cubic-bezier(.2,.7,.2,1) both}
+.page-home > div:first-child section > *:nth-child(2){animation-delay:.08s}
+.page-home > div:first-child section > *:nth-child(3){animation-delay:.16s}
+.page-home > div:first-child section > *:nth-child(4){animation-delay:.24s}
+.page-home > div:first-child section > *:nth-child(5){animation-delay:.32s}
+.page-home > div:first-child section > .tilt-in{animation:clivoTilt 1.3s cubic-bezier(.2,.7,.2,1) .4s both}
+@supports (animation-timeline: view()){
+.page-home > section > *:not(.bento), .page-home > div + div > *, .page-home > footer, .bento > .feat-card{animation:clivoReveal linear both;animation-timeline:view();animation-range:entry 5% cover 28%}
+.phone-rise{animation:clivoPhone linear both;animation-timeline:view();animation-range:entry 0% cover 45%}
+}
+@media (prefers-reduced-motion: reduce){.page-home header,.page-home > div:first-child section > *,.page-home > section > *,.page-home > div + div > *,.page-home > footer,.bento > .feat-card,.phone-rise{animation:none !important}}
+summary{cursor:pointer;list-style:none}
+summary::-webkit-details-marker{display:none}
+.feat-card{transition:transform .3s cubic-bezier(.2,.7,.2,1),box-shadow .3s ease,border-color .3s ease}
+.feat-card:hover{transform:translateY(-4px);box-shadow:0 18px 40px rgba(29,30,36,0.08);border-color:#d4d4db}
+.feat-icon{transition:transform .3s ease,background .3s ease}
+.feat-card:hover .feat-icon{transform:rotate(-6deg) scale(1.06);background:#f4f4f7}
+@keyframes clivoPulse{0%,100%{box-shadow:0 0 0 0 rgba(16,185,97,.45)}60%{box-shadow:0 0 0 7px rgba(16,185,97,0)}}
+.live-dot{animation:clivoPulse 2s ease-out infinite}
+@keyframes clivoDraw{0%{stroke-dashoffset:300}55%,100%{stroke-dashoffset:0}}
+.draw-line{stroke-dasharray:300;animation:clivoDraw 4s ease-in-out infinite}
+@keyframes clivoFloat{0%,100%{transform:translate(0,0) rotate(0)}50%{transform:translate(4px,-6px) rotate(6deg)}}
+.plane{animation:clivoFloat 3.2s ease-in-out infinite}
+@keyframes clivoBlink{0%,49%{opacity:1}50%,100%{opacity:0}}
+.caret{animation:clivoBlink 1s steps(1) infinite}
+@keyframes clivoPop{0%,15%{transform:scale(.92);opacity:0}25%,90%{transform:scale(1);opacity:1}100%{transform:scale(1);opacity:0}}
+.pop{animation:clivoPop 4s ease-in-out infinite;transform-origin:left center}
+@keyframes clivoRow{0%,100%{transform:translateX(0)}50%{transform:translateX(4px)}}
+.flow-row{animation:clivoRow 3.6s ease-in-out infinite}
+@keyframes clivoShimmer{0%{transform:translateX(-120%)}60%,100%{transform:translateX(220%)}}
+.shimmer::after{content:"";position:absolute;inset:0;width:40%;background:linear-gradient(100deg,transparent,rgba(255,255,255,.14),transparent);animation:clivoShimmer 3.5s ease-in-out infinite}
+@keyframes clivoFeed{0%{opacity:0;transform:translateY(6px)}12%,100%{opacity:1;transform:none}}
+.feat-card:hover .feed-row{animation:clivoFeed 1.2s ease both}
+.avatars span{transition:margin .3s ease}
+.feat-card:hover .avatars span{margin-left:-4px !important}
+.feat-card:hover .avatars span:first-child{margin-left:0 !important}
+@media (prefers-reduced-motion: reduce){.live-dot,.draw-line,.plane,.caret,.pop,.flow-row,.shimmer::after,.feed-row{animation:none !important}.draw-line{stroke-dashoffset:0}.feat-card:hover{transform:none}}
+@media (max-width: 680px){.feat-card{grid-column:auto !important}}
+.faq-item{transition:box-shadow .2s ease,border-color .2s ease}
+.faq-item:hover{border-color:#d4d4db}
+.faq-item[open]{box-shadow:0 10px 30px rgba(29,30,36,0.07);border-color:#d9d9e0}
+.faq-icon{flex:none;width:36px;height:36px;border-radius:50%;border:1px solid #e1e1e7;display:flex;align-items:center;justify-content:center;font-size:20px;line-height:1;color:#1d1e24;transition:transform .25s ease,background .25s ease,color .25s ease}
+.faq-item[open] .faq-icon{transform:rotate(45deg);background:#1d1e24;border-color:#1d1e24;color:#ffffff}
+summary:focus-visible{outline:2px solid #1d1e24;outline-offset:6px;border-radius:8px}
+@keyframes clivoMarquee{from{transform:translateX(0)}to{transform:translateX(-50%)}}
+.ex-track{animation:clivoMarquee 45s linear infinite}
+.ex-wrap:hover .ex-track{animation-play-state:paused}
+@media (prefers-reduced-motion: reduce){.ex-track{animation:none}}
+.t-track{animation:clivoMarquee 70s linear infinite}
+.t-track.rev{animation-direction:reverse;animation-duration:80s}
+.t-wrap:hover .t-track{animation-play-state:paused}
+.t-track figure{transition:transform .3s ease,box-shadow .3s ease}
+.t-track figure:hover{transform:translateY(-4px);box-shadow:0 14px 34px rgba(29,30,36,0.08)}
+@media (prefers-reduced-motion: reduce){.t-track{animation:none}}
+
+/* ---- About ---- */
+.page-about header{animation:clivoDrop .7s cubic-bezier(.2,.7,.2,1) both}
+.page-about > div:first-child section > *{animation:clivoUp .9s cubic-bezier(.2,.7,.2,1) both}
+.page-about > div:first-child section > *:nth-child(2){animation-delay:.08s}
+.page-about > div:first-child section > *:nth-child(3){animation-delay:.16s}
+.page-about > div:first-child section > *:nth-child(4){animation-delay:.24s}
+.pay-ring{stroke-dasharray:60;transform-box:fill-box;transform-origin:center;animation:clivoPayRing 3.6s cubic-bezier(.5,0,.3,1) infinite}
+.pay-check{stroke-dasharray:1;animation:clivoPayCheck 3.6s ease-out infinite}
+@keyframes clivoPayRing{0%{stroke-dashoffset:48;transform:rotate(-90deg);opacity:1;stroke:#0a7d42}32%{stroke-dashoffset:0;transform:rotate(270deg);stroke:#0a7d42}38%,90%{stroke-dashoffset:0;transform:rotate(270deg);opacity:1;stroke:#ffffff}100%{stroke-dashoffset:0;transform:rotate(270deg);opacity:0;stroke:#ffffff}}
+@keyframes clivoPayCheck{0%,32%{stroke-dashoffset:1;opacity:1;stroke:#ffffff}48%,90%{stroke-dashoffset:0;opacity:1;stroke:#ffffff}100%{stroke-dashoffset:0;opacity:0;stroke:#ffffff}}
+.pay-badge{background:#e9f8ef;animation:clivoPayBadge 3.6s ease infinite}
+.sync-spin{animation:clivoSync 5s cubic-bezier(.45,0,.25,1) infinite}
+.phone-float{animation:clivoPhoneFloat 7s ease-in-out 1.8s infinite}
+@keyframes clivoPhoneFloat{0%,100%{translate:0 0}50%{translate:0 -16px}}
+@media (prefers-reduced-motion: reduce){.phone-float{animation:none}}
+@keyframes clivoSync{0%{transform:rotate(0)}45%,100%{transform:rotate(360deg)}}
+@media (prefers-reduced-motion: reduce){.sync-spin{animation:none}}
+@keyframes clivoPayBadge{0%,30%{background:#e9f8ef;transform:scale(1)}38%{background:#10b961;transform:scale(1.15)}46%,90%{background:#10b961;transform:scale(1)}100%{background:#e9f8ef;transform:scale(1)}}
+@media (prefers-reduced-motion: reduce){.pay-ring,.pay-check,.pay-badge{animation:none;stroke-dashoffset:0}.pay-badge{background:#10b961}.pay-check,.pay-ring{stroke:#ffffff}}
+@keyframes clivoPhoneIn{from{opacity:0;translate:60px 140px}to{opacity:1;translate:0 0}}
+.page-about > div:first-child section > .phone-in{animation:clivoPhoneIn 1.4s cubic-bezier(.2,.7,.2,1) .35s both}
+@supports (animation-timeline: view()){
+.page-about > section > *, .page-about > div + div > *, .page-about > footer{animation:clivoReveal linear both;animation-timeline:view();animation-range:entry 5% cover 28%}
+}
+@media (prefers-reduced-motion: reduce){.page-about header,.page-about > div:first-child section > *,.page-about > section > *,.page-about > div + div > *,.page-about > footer{animation:none !important}}
+@supports (animation-timeline: view()){.phone-rise{animation:clivoPhone linear both;animation-timeline:view();animation-range:entry 0% cover 45%}}
+@media (prefers-reduced-motion: reduce){.ex-track,.phone-rise{animation:none !important}}
+.story-line::before{content:"";position:absolute;left:8px;top:38px;bottom:38px;width:2px;background:linear-gradient(to bottom,#10b961 0%,#10b961 62%,#d9d9e0 62%);border-radius:2px}
+.v-card{transition:transform .3s cubic-bezier(.2,.7,.2,1),box-shadow .3s ease,border-color .3s ease}
+.v-card:hover{transform:translateY(-4px);box-shadow:0 18px 40px rgba(29,30,36,0.10);border-color:#d4d4db}
+.v-icon{transition:transform .3s ease}
+.v-card:hover .v-icon{transform:rotate(-6deg) scale(1.06)}
+@keyframes clivoVStep{0%,8%{opacity:.35;translate:-6px 0}18%,88%{opacity:1;translate:0 0}100%{opacity:.35;translate:-6px 0}}
+.v-step{animation:clivoVStep 4.5s ease-in-out infinite}
+@keyframes clivoVFill{0%{transform:scaleX(0)}70%,92%{transform:scaleX(1)}100%{transform:scaleX(0)}}
+.v-fill{transform-origin:left;animation:clivoVFill 4.5s ease-in-out infinite}
+@keyframes clivoVPulse{0%,100%{box-shadow:0 0 0 0 rgba(16,185,97,.45)}60%{box-shadow:0 0 0 7px rgba(16,185,97,0)}}
+.v-pulse{animation:clivoVPulse 2s ease-out infinite}
+@keyframes clivoVGlow{0%,100%{opacity:1}50%{opacity:.6}}
+.v-glow{animation:clivoVGlow 3s ease-in-out infinite}
+@keyframes clivoVFloat{0%,100%{translate:0 0;rotate:0deg}50%{translate:3px -6px;rotate:8deg}}
+.v-float{animation:clivoVFloat 3.4s ease-in-out infinite}
+@keyframes clivoVRing{0%{transform:scale(.7);opacity:.9}100%{transform:scale(1.35);opacity:0}}
+.v-ring{animation:clivoVRing 2.4s ease-out infinite}
+@keyframes clivoVCheck{0%,10%{opacity:0;translate:0 6px}22%,90%{opacity:1;translate:0 0}100%{opacity:0;translate:0 0}}
+.v-check{animation:clivoVCheck 5s ease-out infinite}
+@supports (animation-timeline: view()){.v-bento > .v-card{animation:clivoReveal linear both;animation-timeline:view();animation-range:entry 5% cover 28%}}
+@media (max-width: 680px){.v-card{grid-column:auto !important}}
+@media (prefers-reduced-motion: reduce){.v-step,.v-fill,.v-pulse,.v-glow,.v-float,.v-ring,.v-check,.v-bento > .v-card{animation:none !important}.v-card:hover{transform:none}}
+.story-step{transition:transform .3s cubic-bezier(.2,.7,.2,1),box-shadow .3s ease,border-color .3s ease}
+.story-step:hover{transform:translateX(6px);box-shadow:0 14px 34px rgba(29,30,36,0.08)}
+@keyframes clivoNow{0%,100%{box-shadow:0 0 0 0 rgba(16,185,97,.5)}60%{box-shadow:0 0 0 10px rgba(16,185,97,0)}}
+.story-dot.now{animation:clivoNow 2.2s ease-out infinite}
+@supports (animation-timeline: view()){.story-step{animation:clivoReveal linear both;animation-timeline:view();animation-range:entry 0% cover 25%}}
+@media (prefers-reduced-motion: reduce){.story-dot.now,.story-step{animation:none !important}.story-step:hover{transform:none}}
+
+/* ---- Team ---- */
+html[data-theme="dark"] img{filter:invert(1) hue-rotate(180deg)}
+.page-team header{animation:clivoDrop .7s cubic-bezier(.2,.7,.2,1) both}
+.page-team > div:first-child section > *{animation:clivoUp .9s cubic-bezier(.2,.7,.2,1) both}
+.page-team > div:first-child section > *:nth-child(2){animation-delay:.08s}
+.page-team > div:first-child section > *:nth-child(3){animation-delay:.16s}
+.page-team > div:first-child section > *:nth-child(4){animation-delay:.24s}
+@supports (animation-timeline: view()){
+.page-team > section > *, .page-team > div + div > *, .page-team > footer{animation:clivoReveal linear both;animation-timeline:view();animation-range:entry 5% cover 28%}
+}
+.bw{filter:grayscale(1) contrast(1.05)}
+@media (max-width: 900px){.t-stage{zoom:.58}}
+@media (max-width: 560px){.t-stage{zoom:.46}}
+@media (prefers-reduced-motion: reduce){.phone-rise{animation:none !important}}
+.t-card{transition:transform .8s cubic-bezier(.2,.7,.2,1),width .8s cubic-bezier(.2,.7,.2,1),height .8s cubic-bezier(.2,.7,.2,1),opacity .5s ease,box-shadow .8s ease}
+.t-card button:focus-visible{outline:3px solid #10b961;outline-offset:-4px;border-radius:22px}
+.t-soc{transition:background .25s ease,transform .25s ease,color .25s ease}
+.t-soc:hover{background:#ffffff !important;color:#1d1e24 !important;transform:translateY(-2px)}
+.t-soc:focus-visible{outline:2px solid #10b961;outline-offset:2px}
+.t-name{transition:font-size .6s ease}
+@media (prefers-reduced-motion: reduce){.t-card,.t-name{transition:none}}
+@media (prefers-reduced-motion: reduce){.page-team header,.page-team > div:first-child section > *,.page-team > section > *,.page-team > div + div > *,.page-team > footer{animation:none !important}}
+
+/* ---- Contact ---- */
+.page-contact header{animation:clivoDrop .7s cubic-bezier(.2,.7,.2,1) both}
+.page-contact > div:first-child section > *{animation:clivoUp .9s cubic-bezier(.2,.7,.2,1) both}
+.page-contact > div:first-child section > *:nth-child(2){animation-delay:.12s}
+@supports (animation-timeline: view()){
+.page-contact > section > *, .page-contact > footer{animation:clivoReveal linear both;animation-timeline:view();animation-range:entry 5% cover 28%}
+}
+@media (prefers-reduced-motion: reduce){.page-contact header,.page-contact > div:first-child section > *,.page-contact > section > *,.page-contact > footer{animation:none !important}}
+input:focus,select:focus,textarea:focus{outline:2px solid #1d1e24;outline-offset:1px}
+
+/* ---- Terms ---- */
+.page-terms header{animation:clivoDrop .7s cubic-bezier(.2,.7,.2,1) both}
+.page-terms > div:first-child section > *{animation:clivoUp .9s cubic-bezier(.2,.7,.2,1) both}
+.page-terms > div:first-child section > *:nth-child(2){animation-delay:.08s}
+.page-terms > div:first-child section > *:nth-child(3){animation-delay:.16s}
+.page-terms article > section{animation:clivoUp .8s cubic-bezier(.2,.7,.2,1) both}
+@supports (animation-timeline: view()){
+.page-terms > div + div > nav, .page-terms > footer, .page-terms article > *{animation:clivoReveal linear both;animation-timeline:view();animation-range:entry 0% cover 22%}
+}
+@media (prefers-reduced-motion: reduce){.page-terms header,.page-terms > div:first-child section > *,.page-terms > div + div > nav,.page-terms > footer,.page-terms article > *{animation:none !important}}
+
+/* ---- Privacy ---- */
+.page-privacy header{animation:clivoDrop .7s cubic-bezier(.2,.7,.2,1) both}
+.page-privacy > div:first-child section > *{animation:clivoUp .9s cubic-bezier(.2,.7,.2,1) both}
+.page-privacy > div:first-child section > *:nth-child(2){animation-delay:.08s}
+.page-privacy > div:first-child section > *:nth-child(3){animation-delay:.16s}
+.page-privacy article > section{animation:clivoUp .8s cubic-bezier(.2,.7,.2,1) both}
+@supports (animation-timeline: view()){
+.page-privacy > div + div > nav, .page-privacy > footer, .page-privacy article > *{animation:clivoReveal linear both;animation-timeline:view();animation-range:entry 0% cover 22%}
+}
+@media (prefers-reduced-motion: reduce){.page-privacy header,.page-privacy > div:first-child section > *,.page-privacy > div + div > nav,.page-privacy > footer,.page-privacy article > *{animation:none !important}}
